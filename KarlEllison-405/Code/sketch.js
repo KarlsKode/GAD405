@@ -1,14 +1,16 @@
-
 function setup(){
-  createCanvas(594,841);
-  noLoop();
+  createCanvas(594,841); //set canvas size
 }
 
 function draw(){
-  background(51);
-  strokeWeight(10);
-  translate(width/2,height-20);
-  branch(0);
+  background(51);     //set background colour
+  branchdisplay();   //call branchdisplay (details for branch function)
+}
+
+function branchdisplay(){
+  strokeWeight(10);               //stoke size for branches
+  translate(width/2,height);   //position of first branch
+  branch(0);    //call branch function
 }
 
 function branch(depth){
@@ -34,6 +36,7 @@ function branch(depth){
      }
       else { // no branch - continue at the same depth
         branch(depth);
+          noLoop();
       }
     }
   }
