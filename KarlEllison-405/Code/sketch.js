@@ -34,7 +34,7 @@ function branch(depth){
         branch(depth + 1);   // start a second new branch while depth<15
         pop(); // back to saved state
      }
-      else { // no branch - continue at the same depth
+      else { // end of branch function when it reaches 15
         branch(depth);
           noLoop();
       }
