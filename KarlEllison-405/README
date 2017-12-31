@@ -1,1 +1,19 @@
+The first part of the develpoment process I looked into was different ways I could create my tree. There seemed to be two main
+way I could do this either using the enmayer system as a way to create a fractal like tree which I played around with trying to create 
+the desired effect but was unhappy with the results. I looked into the second way of using a recursive function. I used this altering
+the branche lengths, angles and depth until I was happy with the result.
 
+When creating the rain I had to code that seperatly in a new project as I was having troubles getting anythign else to generate on my
+main project due to the tree being static. So to be sure I was coding the rain correctly a new project seemed the best way to see if I
+was able to create it. I started by creating a single rain drop and putting it into an array to create many more. I started to alter
+the positions and speed of the drops with some random positions and speed. Trying to create a depth effect I mapped a Z axis to the 
+drops tryign to make the drops in the back look smaller and appear slower.
+
+Trying to add the two codes to one project was where most of the issues stemmed from. I tried to just combine the two sets of code but was 
+unable to get anything to generate. I tried to add the display branche function into the setup so that it was only called once, hoping that 
+the the rain could generate over it but it didn't work. I found a function called createGraphics() that would create somewhat of a "second
+canvas" I tried to apply my tree code into there but struggled to figure out what exactly was needed and couldn't get it to display properly.
+
+In the end due to these difficulties I had to simplify my project by letting my tree generate a new version everyframe, this allowed my rain
+to also generate. Although not the way I wanted from generating offscreen and falling down, it seemed to have it's position related 
+to the tree which I was unable to fix.
