@@ -1,42 +1,42 @@
-var drops = [];
+var drops = []; // Global varialbe for rain drops array
 
 function setup() {
   createCanvas(594,841);
-  for (var i = 0; i < 500; i++) {
+  for (var i = 0; i < 500; i++) { // Set loop for amount of rain drops
     drops[i] = new Drop();
   }
 }
 
 function draw() {
-  background(51);
-  for (var i = 0; i < drops.length; i++) {
+  background(220, 220, 220);
+  for (var i = 0; i < drops.length; i++) { //draws rain drop
     drops[i].fall();
     drops[i].show();
   }
 }
 
-function Drop() {
-  this.x = random(width);
-  this.y = random(-500, -50);
-  this.z = random(0, 20);
-  this.len = map(this.z, 0, 20, 10, 20);
-  this.yspeed = map(this.z, 0, 20, 1, 20);
+function Drop() {   //Creates rain drops
+  this.x = random(width); // Determines X placement
+  this.y = random(-600, -100); //Determines Y placement off screen to help create random rain fall
+  this.z = random(0, 30); //
+  this.len = map(this.z, 0, 30, 10, 20); //Determines length of rain drops
+  this.yspeed = map(this.z, 0, 30, 1, 20);
 
-  this.fall = function() {
+  this.fall = function() {  //Gives rain drops their movement
     this.y = this.y + this.yspeed;
-    var grav = map(this.z, 0, 20, 0, 0.2);
-    this.yspeed = this.yspeed + grav;
+    var grav = map(this.z, 0, 30, 0, 0.5); //Maps speed of drops, drops further back are slower then those in front
+    this.yspeed = this.yspeed + grav; // Speed of rain fall
 
     if (this.y > height) {
-      this.y = random(-200, -100);
-      this.yspeed = map(this.z, 0, 20, 4, 10);
+      this.y = random(-300, -150);
+      this.yspeed = map(this.z, 0, 30, 4, 15);
     }
   }
 
-  this.show = function() {
-    var thick = map(this.z, 0, 20, 1, 3);
+  this.show = function() {  // Visual for rain drops
+    var thick = map(this.z, 0, 30, 1, 3); //local variable for rain. Rain at back smaller than those at front
     strokeWeight(thick);
-    stroke(100, 30, 22);
+    stroke(100, 30, 22); // Rain colour for blood rain
     line(this.x, this.y, this.x, this.y+this.len);
   }
 }
